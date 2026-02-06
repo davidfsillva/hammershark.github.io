@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hammershark | Moda Performance</title>
+    <meta name="description" content="Hammershark: Roupas de alta performance para quem treina pesado." />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      
+      <a href="index.html" class="logo-link" style="text-decoration: none; color: inherit;">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 12px;">
+          <img src="img/logo.png" alt="Hammershark Logo" class="logo-img" style="height: 45px; width: auto;">
+          <h1 class="logo" style="margin: 0; font-size: 1.8rem; font-weight: 900; text-transform: uppercase;">Hammershark</h1>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#localizacao">Onde Estamos</a></li>
+          <li><a href="carrinho.html">Carrinho</a></li>
+        </ul>
+      </nav>
+
+      <a href="carrinho.html" class="cart-icon" style="text-decoration: none; color: inherit; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+        🛒 <span id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h2>Feita para os fortes.</h2>
+      <p>Performance, conforto e durabilidade para quem treina com foco todos os dias.</p>
+      <a href="#produtos" class="btn-primary">Ver produtos</a>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section id="produtos" class="products">
+      <h2 class="section-title">Nossos Produtos</h2>
+
+      <div class="products-grid">
+        <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+            <a href="produtos.html" class="product-link-wrapper">
+              <img src="img/camiseta1.jpeg" class="product-img active" alt="Camiseta frente" />
+              <img src="img/camiseta2.jpeg" class="product-img" alt="Camiseta costas" loading="lazy" />
+            </a>
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+          <div class="product-info">
+            <a href="produtos.html" class="product-text-link">
+              <h3>Camiseta Básica</h3>
+              <p class="product-description">Camiseta esportiva de modelagem confortável, com caimento solto e tecido leve de alta qualidade. Proporciona respirabilidade, liberdade de movimento e estilo minimalista, perfeita para treinos, atividades físicas ou uso casual no dia a dia.</p>
+              <p class="price">R$ 79,90</p>
+            </a>
+            <button class="btn-product" onclick="addToCart('Camiseta Básica', 79.90, this)">
+              adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+            <a href="produtos.html" class="product-link-wrapper">
+              <img src="img/top1.png" class="product-img active" alt="Camiseta frente" />
+              <img src="img/top2.jpeg" class="product-img" alt="Camiseta costas" loading="lazy" />
+            </a>
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+          <div class="product-info">
+            <a href="produtos.html" class="product-text-link">
+              <h3>Top Nadador</h3>
+              <p class="product-description">Top esportivo com alças nadador, modelagem firme e tecido de alta compressão. Oferece excelente sustentação, conforto e respirabilidade, garantindo segurança e liberdade de movimento durante treinos intensos ou no dia a dia.</p>
+              <p class="price">R$ 54,90</p>
+            </a>
+            <button class="btn-product" onclick="addToCart('Top Nadador', 89.90, this)">
+              adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+          <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+            <a href="produtos.html" class="product-link-wrapper">
+              <img src="img/gray1.png" class="product-img active" alt="Camiseta frente" />
+              <img src="img/gray2.png" class="product-img" alt="Camiseta costas" loading="lazy" />
+            </a>
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+          <div class="product-info">
+            <a href="produtos.html" class="product-text-link">
+              <h3>Camiseta Básica</h3>
+              <p class="product-description">Desenvolvida para os fortes. Nossa camiseta básica combina o toque suave do algodão premium com uma modelagem que valoriza o shape, garantindo durabilidade extrema mesmo após centenas de treinos.</p>
+              <p class="price">R$ 54,90</p>
+            </a>
+            <button class="btn-product" onclick="addToCart('Top Nadador', 89.90, this)">
+              adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+            <a href="produtos.html" class="product-link-wrapper">
+              <img src="img/toplong1.png" class="product-img active" alt="Camiseta frente" />
+              <img src="img/toplong2.jpeg" class="product-img" alt="Camiseta costas" loading="lazy" />
+            </a>
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+          <div class="product-info">
+            <a href="produtos.html" class="product-text-link">
+              <h3>Top Long</h3>
+              <p class="product-description">Top long de manga comprida, com modelagem ajustada ao corpo e tecido canelado de alta elasticidade. Oferece conforto, sustentação e liberdade de movimento, ideal para treinos ou uso casual com estilo moderno e minimalista.</p>
+              <p class="price">R$ 59,90</p>
+            </a>
+            <button class="btn-product" onclick="addToCart('Top Long', 69.90, this)">
+              adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+          <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+            <a href="produtos.html" class="product-link-wrapper">
+              <img src="img/pink1.png" class="product-img active" alt="Camiseta frente" />
+              <img src="img/pink2.png" class="product-img" alt="Camiseta costas" loading="lazy" />
+            </a>
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+          <div class="product-info">
+            <a href="produtos.html" class="product-text-link">
+              <h3>Top Long</h3>
+              <p class="product-description">Top long de manga comprida, com modelagem ajustada ao corpo e tecido canelado de alta elasticidade. Oferece conforto, sustentação e liberdade de movimento, ideal para treinos ou uso casual com estilo moderno e minimalista.</p>
+              <p class="price">R$ 59,90</p>
+            </a>
+            <button class="btn-product" onclick="addToCart('Top Long', 69.90, this)">
+              adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+                <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+            <a href="produtos.html" class="product-link-wrapper">
+              <img src="img/black1.png" class="product-img active" alt="Camiseta frente" />
+              <img src="img/black2.png" class="product-img" alt="Camiseta costas" loading="lazy" />
+            </a>
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+          <div class="product-info">
+            <a href="produtos.html" class="product-text-link">
+              <h3>Top Long</h3>
+              <p class="product-description">Top long de manga comprida, com modelagem ajustada ao corpo e tecido canelado de alta elasticidade. Oferece conforto, sustentação e liberdade de movimento, ideal para treinos ou uso casual com estilo moderno e minimalista.</p>
+              <p class="price">R$ 59,90</p>
+            </a>
+            <button class="btn-product" onclick="addToCart('Top Long', 69.90, this)">
+              adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+          <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+            <a href="produtos.html" class="product-link-wrapper">
+              <img src="img/over1.png" class="product-img active" alt="Camiseta frente" />
+              <img src="img/over2.PNG" class="product-img" alt="Camiseta costas" loading="lazy" />
+            </a>
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+          <div class="product-info">
+            <a href="produtos.html" class="product-text-link">
+              <h3>Top Long</h3>
+              <p class="product-description">Top long de manga comprida, com modelagem ajustada ao corpo e tecido canelado de alta elasticidade. Oferece conforto, sustentação e liberdade de movimento, ideal para treinos ou uso casual com estilo moderno e minimalista.</p>
+              <p class="price">R$ 59,90</p>
+            </a>
+            <button class="btn-product" onclick="addToCart('Top Long', 69.90, this)">
+              adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+          <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+            <a href="produtos.html" class="product-link-wrapper">
+              <img src="img/topblue1.png" class="product-img active" alt="Camiseta frente" />
+              <img src="img/topblue2.png" class="product-img" alt="Camiseta costas" loading="lazy" />
+            </a>
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+          <div class="product-info">
+            <a href="produtos.html" class="product-text-link">
+              <h3>Top Long</h3>
+              <p class="product-description">Top long de manga comprida, com modelagem ajustada ao corpo e tecido canelado de alta elasticidade. Oferece conforto, sustentação e liberdade de movimento, ideal para treinos ou uso casual com estilo moderno e minimalista.</p>
+              <p class="price">R$ 59,90</p>
+            </a>
+            <button class="btn-product" onclick="addToCart('Top Long', 69.90, this)">
+              adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre" class="about" style="padding: 4rem 0; text-align: center;">
+      <h2 class="section-title">Sobre a Hammershark</h2>
+      <p style="max-width: 800px; margin: auto; color: var(--gray);">
+        Nascida para atletas que buscam performance extrema. Nossas roupas são testadas nos ambientes mais pesados para garantir que você foque apenas no seu treino.
+      </p>
+    </section>
+
+    <section id="localizacao" class="location" style="padding: 4rem 0;">
+      <h2 class="section-title">Onde Estamos</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-top: 2rem;">
+        
+        <div style="flex: 1; min-width: 300px;">
+          <h3 style="margin-bottom: 1rem;">Visite nossa loja física</h3>
+          <p style="margin-bottom: 0.8rem;"><i class="fa-solid fa-location-dot"></i> Av. Exemplo da Força, 1000 - Centro</p>
+          <p style="margin-bottom: 0.8rem;">Sua Cidade - UF | CEP 00000-000</p>
+          <p style="margin-bottom: 1.5rem;"><i class="fa-solid fa-clock"></i> Segunda a Sexta: 08h às 20h</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-product" style="text-decoration: none; display: inline-block;">Ver no Google Maps</a>
+        </div>
+
+        <div style="flex: 1.5; min-width: 300px; height: 350px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.65!3d-23.56!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzM2LjAiUyA0NsKwMzknMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-contacts">
+        <a href="mailto:Teamhammershark@gmail.com" class="footer-link">
+          <i class="fa-regular fa-envelope"></i> 
+          <span>Teamhammershark@gmail.com</span>
+        </a>
+
+        <a href="https://www.instagram.com/hammershark__" target="_blank" class="footer-link">
+          <i class="fa-brands fa-instagram"></i> 
+          <span>@hammershark__</span>
+        </a>
+
+        <a href="https://wa.me/5594993012103" target="_blank" class="footer-link">
+          <i class="fa-brands fa-whatsapp"></i> 
+          <span>(94) 99301-2103</span>
+        </a>
+      </div>
+
+      <hr style="opacity: 0.2; margin: 2rem 0;">
+      <p>© 2026 - Hammershark. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
