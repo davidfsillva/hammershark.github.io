@@ -100,7 +100,7 @@ function addToCart(name, price, btn) {
 
     if (btn) {
         const originalText = btn.innerText;
-        btn.innerText = "✅ No Carrinho!";
+        btn.innerText = "No Carrinho!";
         btn.style.backgroundColor = "#22c55e";
         btn.disabled = true;
         setTimeout(() => {

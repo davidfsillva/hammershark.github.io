@@ -140,13 +140,15 @@ body {
 /* Botão de menu (hamburger) */
 .menu-toggle {
   display: none; /* aparece apenas em mobile */
-  background: var(--primary);
+  background: white;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 1.5rem;
   padding: 0.6rem 1rem;
   border-radius: 8px;
   cursor: pointer;
+
+  margin-right: 3rem; /* 👈 adiciona espaço da borda direita */
 }
 
 /* =====================
@@ -414,6 +416,42 @@ body {
   background: #00aeff;
   transform: translateY(-3px);
   box-shadow: 5 var(--border);
+}
+
+.floating-cart {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  background: var(--primary);
+  color: white;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  z-index: 3000;
+  transition: 0.3s ease;
+}
+
+.floating-cart:hover {
+  transform: scale(1.08);
+}
+
+/* contador */
+.floating-cart #cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: black;
+  color: white;
+  font-size: 0.75rem;
+  padding: 3px 7px;
+  border-radius: 50%;
+  font-weight: bold;
 }
 
 /* =====================
