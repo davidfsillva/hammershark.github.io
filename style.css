@@ -101,10 +101,10 @@ body {
 
 .header-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
 }
+
 
 .nav ul {
   display: flex;
@@ -154,7 +154,8 @@ body {
   border-radius: 8px;
   cursor: pointer;
 
-  margin-right: 3rem; /* 👈 adiciona espaço da borda direita */
+  order: -1;
+  margin: 10px /* 👈 adiciona espaço da borda direita */
 }
 
 /* =====================
@@ -613,10 +614,12 @@ body {
   }
 
   .header-container {
-    flex-direction: column;
-    gap: 1.2rem;
-    width: 100%;
-    padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row; /* mantém lado a lado */
+  width: 100%;
+  padding: 0 1rem;
   }
 
   /* HERO */

@@ -13,21 +13,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+  <!-- ================= HEADER ================= -->
   <header class="header">
-    <button id="menu-toggle" class="menu-toggle" aria-label="Abrir/Fechar Menu">
-      <i class="fa fa-bars"></i>
-    </button>
-
     <div class="header-container">
+
+      <!-- MENU MOBILE -->
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir/Fechar Menu">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <!-- LOGO -->
       <a href="index.html" class="logo-link">
         <div class="logo-container">
-          <img src="img/logo.png" alt="Hammershark Logo" class="logo-img">
+          <img src="img/logo.png" alt="Logo Hammershark" class="logo-img">
           <h1 class="logo">Hammershark</h1>
         </div>
       </a>
 
+      <!-- MENU -->
       <nav class="nav">
         <ul>
           <li><a href="#inicio">Início</a></li>
@@ -37,12 +43,17 @@
         </ul>
       </nav>
 
-      <a href="carrinho.html" class="floating-cart"><i class="fa-solid fa-cart-shopping"></i>
-      <span id="cart-count">0</span></a>
+      <!-- CARRINHO -->
+      <a href="carrinho.html" class="floating-cart" aria-label="Carrinho">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
+      </a>
 
     </div>
   </header>
 
+
+  <!-- ================= HERO ================= -->
   <section id="inicio" class="hero">
     <div class="hero-content">
       <h2>Feita para os fortes.</h2>
@@ -51,72 +62,110 @@
     </div>
   </section>
 
+
+  <!-- ================= MAIN ================= -->
   <main class="container">
 
+    <!-- ================= PRODUTOS ================= -->
     <section id="produtos" class="products">
       <h2 class="section-title">Nossos Produtos</h2>
 
       <div class="products-grid">
-        <!-- Produto Exemplo -->
+
+        <!-- CAMISETA -->
         <article class="product">
           <div class="product-image">
             <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+
             <a href="produtos.html" class="product-link-wrapper">
               <img src="img/camiseta1.jpeg" class="product-img active" alt="Camiseta frente" />
               <img src="img/camiseta2.jpeg" class="product-img" alt="Camiseta costas" loading="lazy" />
             </a>
+
             <button class="next" type="button" aria-label="Próxima imagem">›</button>
           </div>
+
           <div class="product-info">
             <h3>Camiseta Básica</h3>
-            <p class="product-description">Camiseta esportiva de modelagem confortável, com caimento solto e tecido leve de alta qualidade. Proporciona respirabilidade, liberdade de movimento e estilo minimalista, perfeita para treinos, atividades físicas ou uso casual.</p>
+            <p class="product-description">
+              Camiseta esportiva de modelagem confortável, com caimento solto e tecido leve de alta qualidade.
+              Proporciona respirabilidade, liberdade de movimento e estilo minimalista,
+              perfeita para treinos ou uso casual.
+            </p>
             <p class="price">R$ 79,90</p>
-            <button class="btn-product" onclick="addToCart('Camiseta Básica', 79.90, this)">Adicionar ao carrinho</button>
+            <button class="btn-product" onclick="addToCart('Camiseta Básica', 79.90, this)">
+              Adicionar ao carrinho
+            </button>
           </div>
         </article>
 
+
+        <!-- TOP NADADOR -->
         <article class="product">
           <div class="product-image">
             <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+
             <a href="produtos.html" class="product-link-wrapper">
               <img src="img/top1.png" class="product-img active" alt="Top frente" />
               <img src="img/top2.jpeg" class="product-img" alt="Top costas" loading="lazy" />
             </a>
+
             <button class="next" type="button" aria-label="Próxima imagem">›</button>
           </div>
+
           <div class="product-info">
             <h3>Top Nadador</h3>
-            <p class="product-description">Top esportivo com alças nadador, modelagem firme e tecido de alta compressão. Oferece excelente sustentação, conforto e respirabilidade, garantindo segurança e liberdade de movimento durante treinos intensos.</p>
+            <p class="product-description">
+              Top esportivo com alças nadador e tecido de alta compressão.
+              Oferece sustentação, conforto e liberdade de movimento
+              para treinos intensos.
+            </p>
             <p class="price">R$ 89,90</p>
-            <button class="btn-product" onclick="addToCart('Top Nadador', 89.90, this)">Adicionar ao carrinho</button>
+            <button class="btn-product" onclick="addToCart('Top Nadador', 89.90, this)">
+              Adicionar ao carrinho
+            </button>
           </div>
         </article>
-
-        <!-- Repita os demais produtos conforme o modelo acima -->
-        <!-- Top Long, Top Long Coloridos, etc. -->
 
       </div>
     </section>
 
+
+    <!-- ================= SOBRE ================= -->
     <section id="sobre" class="about">
       <h2 class="section-title">Sobre a Hammershark</h2>
-      <p>Nascida para atletas que buscam performance extrema. Nossas roupas são testadas nos ambientes mais pesados para garantir que você foque apenas no seu treino.</p>
+      <p>
+        Nascida para atletas que buscam performance extrema.
+        Nossas roupas são testadas em treinos pesados para garantir
+        resistência, conforto e estilo em qualquer desafio.
+      </p>
     </section>
 
+
+    <!-- ================= LOCALIZAÇÃO ================= -->
     <section id="localizacao" class="location">
       <h2 class="section-title">Onde Estamos</h2>
+
       <div class="location-grid">
         <div class="store-info">
           <h3>Visite nossa loja física</h3>
           <p><i class="fa-solid fa-location-dot"></i> Av. Exemplo da Força, 1000 - Centro</p>
           <p>Sua Cidade - UF | CEP 00000-000</p>
           <p><i class="fa-solid fa-clock"></i> Segunda a Sexta: 08h às 20h</p>
-          <a href="https://maps.google.com" target="_blank" class="btn-product">Ver no Google Maps</a>
+
+          <a href="https://maps.google.com" target="_blank" class="btn-product">
+            Ver no Google Maps
+          </a>
         </div>
+
         <div class="map-container">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.65!3d-23.56!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzM2LjAiUyA0NsKwMzknMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000" 
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen 
+            loading="lazy">
           </iframe>
         </div>
       </div>
@@ -124,21 +173,32 @@
 
   </main>
 
+
+  <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-contacts">
-        
-        
-        <a href="https://wa.me/5594993012103" target="_blank" class="footer-link"><i class="fa-brands fa-whatsapp"></i> (94) 99301-2103</a>
-        <a href="https://www.instagram.com/hammershark__" target="_blank" class="footer-link"><i class="fa-brands fa-instagram"></i> @hammershark__</a>
-        <a href="mailto:Teamhammershark@gmail.com" class="footer-link"><i class="fa-regular fa-envelope"></i> Teamhammershark@gmail.com</a>
 
+      <div class="footer-contacts">
+        <a href="https://wa.me/5594993012103" target="_blank" class="footer-link">
+          <i class="fa-brands fa-whatsapp"></i> (94) 99301-2103
+        </a>
+
+        <a href="https://www.instagram.com/hammershark__" target="_blank" class="footer-link">
+          <i class="fa-brands fa-instagram"></i> @hammershark__
+        </a>
+
+        <a href="mailto:Teamhammershark@gmail.com" class="footer-link">
+          <i class="fa-regular fa-envelope"></i> Teamhammershark@gmail.com
+        </a>
       </div>
+
       <hr>
       <p>© 2026 - Hammershark. Todos os direitos reservados.</p>
+
     </div>
   </footer>
 
   <script src="scripts.js"></script>
+
 </body>
 </html>
