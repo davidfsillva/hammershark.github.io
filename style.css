@@ -586,24 +586,19 @@ body {
 /* =====================
    RESPONSIVIDADE
 ===================== */
-/* =====================
-   RESPONSIVIDADE
-===================== */
 
+/* ===================== RESPONSIVIDADE ===================== */
+
+/* TABLET */
 @media (max-width: 1024px) {
-
   .location-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
 }
 
-/* ===================== MOBILE ===================== */
-
+/* MOBILE GERAL (Smartphones) */
 @media (max-width: 768px) {
-
-  /* Containers mais largos */
   .container,
   .products-grid,
   .hero-content,
@@ -614,76 +609,40 @@ body {
   }
 
   .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row; /* mantém lado a lado */
-  width: 100%;
-  padding: 0 1rem;
-  }
-
-  /* HERO */
-  .hero {
-    min-height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     padding: 0 1rem;
   }
 
-  .hero h2 {
-    font-size: 2rem;
-    line-height: 1.2;
+  /* LOGO E NOME AJUSTADOS */
+  .logo-link {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-start; 
+    margin-left: 27px; /* Seu ajuste para a direita */
   }
 
-  .hero p {
-    font-size: 1rem;
-    line-height: 1.4;
+  .logo-container {
+    gap: 10px;
   }
 
-  .btn-primary {
-    padding: 0.9rem 2rem;
-    font-size: 0.95rem;
+  .logo {
+    font-size: 1.8rem;
+    white-space: nowrap;
   }
 
-  /* PRODUTOS */
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .logo-img {
+    height: 3.2em;
+    margin-left: -10px;
+    order: 2;
   }
 
-  .product {
-    border-radius: 18px;
-  }
-
-  .product-info {
-    padding: 1.2rem;
-  }
-
-  .btn-product {
-    padding: 0.9rem;
-    font-size: 0.9rem;
-  }
-
-  /* DETALHE PRODUTO */
-  .product-detail {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  /* CARRINHO */
-  .summary-box {
-    max-width: 100%;
-    margin-left: 0;
-    padding: 1.5rem;
-  }
-
-  /* MENU MOBILE */
-  .nav ul {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
-
+  /* MENU & NAVEGAÇÃO MOBILE */
   .menu-toggle {
     display: block;
+    margin-right: 5px; 
   }
 
   .nav {
@@ -702,47 +661,51 @@ body {
     display: flex;
   }
 
-  /* FOOTER */
+  .nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* HERO & PRODUTOS MOBILE */
+  .hero {
+    min-height: 60vh;
+    padding: 0 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* FOOTER MOBILE */
   .footer-contacts {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
   }
+} /* <--- FIM DO MOBILE GERAL */
 
-  .footer-container {
-    padding: 2rem 1rem;
-  }
-
-}
-
-/* ===================== MOBILE PEQUENO ===================== */
-
+/* MOBILE PEQUENO (Ajustes finos) */
 @media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem; /* Reduz um pouco para não cortar em telas muito estreitas */
+  }
+  
+  .logo-img {
+    height: 2.8em;
+  }
 
   .hero h2 {
     font-size: 1.8rem;
   }
 
-  .hero p {
-    font-size: 0.95rem;
-  }
-
-  .btn-primary {
-    padding: 0.8rem 1.6rem;
-    font-size: 0.85rem;
-  }
-
-  .store-info h3 {
-    font-size: 1.4rem;
-  }
-
-  .store-info p {
-    font-size: 0.85rem;
-  }
-
   .map-container {
     height: 250px;
   }
-
 }
-
