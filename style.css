@@ -302,7 +302,7 @@ body {
 
 .btn-product:hover {
   background: white;
-  border-radius: 1px black;
+  border-radius: 12px; /* ou mantenha igual */
   border: 1px solid black;
   color: black;
 }
@@ -457,10 +457,35 @@ body {
   background: black;
   color: white;
   font-size: 0.75rem;
-  padding: -5px 5px;
+  padding: 2px 9px;
   border-radius: 50%;
   font-weight: bold;
 }
+
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 12px;
+  background: white;
+  border: 1px solid black;
+  color: black;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: black;
+  color: white;
+}
+
 
 /* =====================
    SOBRE

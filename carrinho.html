@@ -6,11 +6,41 @@
     <title>Meu Carrinho | Hammershark</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
+<style>
+.back-link {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: 2px solid var(--primary);
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--primary);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease;
+}
+
+.back-link:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+
+</style>
 <body>
   <header class="header">
     <div class="header-container">
       <h1 class="logo">Hammershark</h1>
-      <a href="index.html" class="back-link" style="text-decoration:none; color:var(--primary); font-weight:bold;">Voltar</a>
+
+      <a href="index.html" class="back-link">
+        Voltar
+      </a>
+
+
     </div>
   </header>
 
@@ -25,11 +55,16 @@
         <div class="cart-footer">
           <div class="summary-box">
             <p>Subtotal: <span>R$ <span id="subtotal">0.00</span></span></p>
-            <p>Frete: <span>R$ <span id="shipping">0.00</span></span></p>
+
             <div class="total-line">
                 <span>Total:</span>
                 <strong>R$ <span id="total">0.00</span></strong>
             </div>
+
+            <div class="cart-actions">
+            <button class="btn-secondary" id="clearCartBtn">Esvaziar Carrinho</button>
+            </div>
+
             <button class="checkout-btn" id="checkoutBtn">Finalizar via WhatsApp</button>
           </div>
         </div>
