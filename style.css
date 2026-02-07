@@ -29,6 +29,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Corrige âncora cortando título por causa do header sticky */
+section {
+  scroll-margin-top: 90px;
+}
+
+
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--light);
