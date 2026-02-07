@@ -646,7 +646,7 @@ body {
     flex: 1; 
     display: flex;
     justify-content: flex-start; 
-    margin-left: 27px; /* Seu ajuste para a direita */
+    margin-left: 24px; /* Seu ajuste para a direita */
   }
 
   .logo-container {
