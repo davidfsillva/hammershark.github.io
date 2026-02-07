@@ -174,7 +174,7 @@ document.addEventListener('click', (e) => {
             return;
         }
 
-        let message = "🔥 *Novo Pedido - Hammershark*%0A%0A";
+        let message = "🦈 *Novo Pedido - Hammershark*%0A%0A";
         cart.forEach((item, idx) => {
             message += `${idx + 1}. *${item.name}* - Tam: ${item.size} (R$ ${item.price.toFixed(2)})%0A`;
         });
