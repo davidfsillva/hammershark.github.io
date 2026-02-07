@@ -323,9 +323,16 @@ body {
   padding: 2.5rem;
   border-radius: 25px;
   box-shadow: var(--shadow);
+
+  overflow: hidden;
 }
 
-.main-img { width: 100%; border-radius: 15px; }
+.main-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 .category-tag {
   color: var(--primary);
@@ -611,10 +618,6 @@ body {
   color: var(--gray);
 }
 
-/* =====================
-   RESPONSIVIDADE
-===================== */
-
 /* ===================== RESPONSIVIDADE ===================== */
 
 /* TABLET */
@@ -719,6 +722,11 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    box-sizing: border-box;
   }
 } /* <--- FIM DO MOBILE GERAL */
 
