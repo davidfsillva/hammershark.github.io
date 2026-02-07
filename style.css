@@ -2,8 +2,8 @@
    RESET & VARIÁVEIS
 ===================== */
 :root {
-  --primary: #531bee;
-  --secondary: #00c6ff;
+  --primary: #00aeff;
+  --secondary: #00aeff;
   --dark: #000000;
   --light: #f8fafc;
   --gray: #64748b;
@@ -188,12 +188,12 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   transition: 0.4s;
-  box-shadow: 0 10px 20px rgba(83, 27, 238, 0.3);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  background: #6231f5;
+  background: #00aeff;
 }
 
 /* =====================
@@ -283,7 +283,7 @@ body {
   padding: 1rem;
   margin-top: 1rem;
   background: transparent;
-  border: 2px solid var(--dark);
+  border: 1px solid var(--dark);
   border-radius: 12px;
   font-weight: 800;
   text-transform: uppercase;
@@ -292,7 +292,8 @@ body {
 }
 
 .btn-product:hover {
-  background: var(--dark);
+  background: var(--secondary);
+  border: var(--secondary);
   color: white;
 }
 
@@ -410,9 +411,9 @@ body {
 }
 
 .checkout-btn:hover {
-  background: #4316c1;
+  background: #00aeff;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(83,27,238,0.3);
+  box-shadow: 5 var(--border);
 }
 
 /* =====================
