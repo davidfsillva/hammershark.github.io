@@ -686,7 +686,6 @@ body {
   background: var(--white);
   padding: 1.2rem 1rem;
   border-radius: 0 0 16px 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   }
 
   .nav.open {
