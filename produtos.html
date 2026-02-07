@@ -7,41 +7,53 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-      /* BOTÃO VOLTAR */
-      .back-btn {
-        padding: 3px 16px;
-        border: 2px solid var(--primary);
-        border-radius: 30px;
-        text-decoration: none;
-        color: var(--primary);
-        font-weight: 600;
-        transition: 0.3s ease;
-      }
+        /* BOTÃO VOLTAR */
+    .back-btn {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--primary);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: 0.3s ease;
+    }
 
-      .back-btn:hover {
-        background: var(--primary);
-        color: white;
-      }
+    .back-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
 
-      /* CARRINHO FLUTUANTE */
-      .cart-floating {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--primary);
-        color: white;
-        padding: 10px 16px;
-        border-radius: 50px;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        z-index: 999;
-        transition: 0.3s ease;
-      }
 
-      .cart-floating:hover {
-        transform: scale(1.05);
-      }
+    /* CARRINHO FLUTUANTE */
+    .cart-floating {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      z-index: 999;
+      transition: 0.3s ease;
+    }
+
+    .cart-floating:hover {
+      transform: translateY(-3px);
+    }
+
     </style>
 </head>
 <body>
@@ -53,10 +65,14 @@
 
   <header class="header">
     <div class="header-container">
-      <h1 class="logo">Hammershark</h1>
+      <div class="logo-container">
+      <h1 class="logo">HAMMERSHARK</h1>
+      <img src="img/logo.png" alt="Hammershark Logo" class="logo-img">
+    </div>
+
 
       <a href="index.html" class="back-btn">
-        ← Voltar
+        Voltar
       </a>
     </div>
   </header>
