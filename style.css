@@ -4,7 +4,7 @@
 :root {
   --primary: #531bee;
   --secondary: #00c6ff;
-  --dark: #0f172a;
+  --dark: #000000;
   --light: #f8fafc;
   --gray: #64748b;
   --border: #e2e8f0;
@@ -17,6 +17,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Remove sublinhado de todos os links */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 html {
@@ -32,7 +38,7 @@ body {
 }
 
 /* =====================
-   CONTAINERS E PADRÃO DE LARGURA
+   CONTAINERS
 ===================== */
 .container, 
 .header-container, 
@@ -51,25 +57,28 @@ body {
 ===================== */
 .logo-container {
   display: flex;
-  align-items: flex-end;
+  align-items: center; /* mantém texto e imagem alinhados verticalmente */
   gap: 12px;
 }
 
 .logo {
   font-family: 'Inter', sans-serif;
-  font-size: 1.6rem;
+  font-size: 2.0rem;
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1;
+  color: var(--dark); /* Logo preto */
 }
 
 .logo-img {
-  height: 1.7em;
+  height: 3.7em;/* aumente a altura para deixar a logo maior*/
   width: auto;
   object-fit: contain;
   order: 2;
-  margin-bottom: 0.35em;
-  margin-left: -10px;
+  margin-bottom: 0.35em; /* remove o offset que você tinha */
+  margin-left: -15px; /* move a logo direita e esquerda */
+  transform: translateY(0); /* ajuste fino se necessário */
+
 }
 
 /* =====================
@@ -98,7 +107,7 @@ body {
 }
 
 .nav a {
-  text-decoration: none;
+  text-decoration: none; /* Remove sublinhado */
   color: var(--dark);
   font-weight: 600;
   transition: 0.3s;
@@ -112,6 +121,8 @@ body {
   position: relative;
   font-size: 1.5rem;
   cursor: pointer;
+  text-decoration: none; /* Remove sublinhado do carrinho */
+  color: var(--dark);
 }
 
 #cart-count {
@@ -128,14 +139,14 @@ body {
 
 /* Botão de menu (hamburger) */
 .menu-toggle {
-    display: none; /* aparece apenas em mobile */
-    background: var(--primary);
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
+  display: none; /* aparece apenas em mobile */
+  background: var(--primary);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 /* =====================
@@ -229,6 +240,7 @@ body {
   height: 100%;
   object-fit: cover;
   display: none;
+  transition: 0.4s;
 }
 
 .product-img.active {
@@ -253,8 +265,6 @@ body {
 .next { right: 10px; }
 
 .product-info { padding: 1.5rem; }
-
-.product-text-link { text-decoration: none; color: inherit; }
 
 .product-description {
   font-size: 0.9rem;
@@ -406,6 +416,65 @@ body {
 }
 
 /* =====================
+   SOBRE
+===================== */
+.about {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 1rem auto 0;
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* =====================
+   LOCALIZAÇÃO / MAPA
+===================== */
+.location {
+  padding: 4rem 1rem;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.store-info h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.store-info p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--gray);
+}
+
+.store-info a.btn-product {
+  margin-top: 1rem;
+  display: inline-block;
+  width: auto;
+  padding: 0.8rem 1.8rem;
+}
+
+.map-container {
+  width: 100%;
+  height: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* =====================
    FOOTER
 ===================== */
 .footer {
@@ -470,6 +539,10 @@ body {
 /* =====================
    RESPONSIVIDADE
 ===================== */
+@media (max-width: 1024px) {
+  .location-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -479,10 +552,8 @@ body {
   }
 
   .hero { min-height: 60vh; padding: 0 1rem; }
-
   .hero h2 { font-size: 2rem; line-height: 1.2; }
   .hero p { font-size: 1rem; line-height: 1.4; }
-
   .btn-primary { padding: 0.8rem 2rem; font-size: 0.95rem; }
 
   .product-detail { grid-template-columns: 1fr; gap: 2rem; }
@@ -491,30 +562,44 @@ body {
   .btn-product { padding: 0.8rem; font-size: 0.9rem; }
 
   .summary-box { max-width: 100%; margin-left: 0; padding: 1.5rem; }
-
   .footer-contacts { flex-direction: column; align-items: center; gap: 1.5rem; }
   .footer-container { padding: 2rem 1rem; }
 
   .nav ul { flex-direction: column; gap: 1rem; align-items: center; }
-
-   .menu-toggle {
-        display: block;
-    }
-
-    .nav {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        margin-top: 1rem;
-        background: var(--white);
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        padding: 1rem;
-    }
-
-    .nav.open {
-        display: flex;
-    }
+  .menu-toggle { display: block; }
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 1rem;
+  }
+  .nav.open { display: flex; }
 }
 
+@media (max-width: 480px) {
+  .hero h2 { font-size: 1.8rem; }
+  .hero p { font-size: 0.95rem; }
+  .btn-primary { padding: 0.7rem 1.8rem; font-size: 0.9rem; }
+
+  .store-info h3 { font-size: 1.4rem; }
+  .store-info p { font-size: 0.85rem; }
+
+  .map-container { height: 250px; }
+}
+
+/* =====================
+   ANIMAÇÕES
+===================== */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}

@@ -85,13 +85,13 @@ function initProductSliders() {
 // 5. LÓGICA DO CARRINHO
 // =====================
 function selectSize(btn) {
-    const parent = btn.parentElement;
+    const parent = btn.closest('.sizes');
     parent.querySelectorAll('button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 }
 
 function addToCart(name, price, btn) {
-    const activeSizeBtn = document.querySelector('.sizes button.active');
+    const activeSizeBtn = btn.closest('.product').querySelector('.sizes button.active');
     const size = activeSizeBtn ? activeSizeBtn.innerText : "M";
 
     cart.push({ name, price, size });
@@ -118,15 +118,12 @@ function removeFromCart(index) {
 }
 
 function updateCartUI() {
-    // Atualiza o contador (bolinha) em todas as páginas
     if (elements.cartCount) {
         elements.cartCount.innerText = cart.length;
     }
 
-    // Se não houver o elemento da lista de itens, interrompe (ex: página home sem o carrinho aberto)
     if (!elements.cartItems) return;
 
-    // Lógica para esconder/mostrar containers se o carrinho estiver vazio (Página Carrinho)
     const emptyMsg = document.getElementById('empty-cart-msg');
     const cartWrapper = document.getElementById('cart-wrapper');
 
@@ -137,7 +134,7 @@ function updateCartUI() {
     } else {
         if (emptyMsg) emptyMsg.style.display = "none";
         if (cartWrapper) cartWrapper.style.display = "block";
-        
+
         elements.cartItems.innerHTML = "";
         let sub = 0;
 
@@ -145,7 +142,6 @@ function updateCartUI() {
             sub += item.price;
             const li = document.createElement("li");
             li.style.cssText = "display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; padding:15px; background:#fff; border-bottom:1px solid #eee; border-radius:10px;";
-            
             li.innerHTML = `
                 <div>
                     <strong style="display:block;">${item.name}</strong> 
@@ -190,10 +186,10 @@ document.addEventListener('click', (e) => {
         const phone = "5594993012103";
         window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
     }
-});zz
+});
 
 // =====================
-// BOTÃO DE ENCOLHER/EXPANDIR MENU
+// 7. BOTÃO DE ENCOLHER/EXPANDIR MENU
 // =====================
 const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.querySelector('.nav');
@@ -201,7 +197,6 @@ const navMenu = document.querySelector('.nav');
 if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('open');
-        // Troca ícone entre menu e fechar
         menuToggle.innerHTML = navMenu.classList.contains('open') 
             ? '<i class="fa fa-xmark"></i>' 
             : '<i class="fa fa-bars"></i>';
