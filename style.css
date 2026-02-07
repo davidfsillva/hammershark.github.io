@@ -450,7 +450,7 @@ body {
   background: black;
   color: white;
   font-size: 0.75rem;
-  padding: 3px 7px;
+  padding: -5px 5px;
   border-radius: 50%;
   font-weight: bold;
 }
