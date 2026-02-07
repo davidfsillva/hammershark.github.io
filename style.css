@@ -215,6 +215,10 @@ body {
   padding: 4rem 1rem;
 }
 
+.product-detail {
+  padding: 2.5rem;
+}
+
 .section-title {
   font-size: 2.2rem;
   text-align: center;
@@ -728,6 +732,12 @@ body {
     width: 100%;
     box-sizing: border-box;
   }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    padding: 1.5rem; /* reduz o padding também */
+  }
+
 } /* <--- FIM DO MOBILE GERAL */
 
 /* MOBILE PEQUENO (Ajustes finos) */
@@ -746,5 +756,9 @@ body {
 
   .map-container {
     height: 250px;
+  }
+
+  .product-detail {
+    padding: 1.2rem;
   }
 }
