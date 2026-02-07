@@ -191,3 +191,19 @@ document.addEventListener('click', (e) => {
         window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
     }
 });zz
+
+// =====================
+// BOTÃO DE ENCOLHER/EXPANDIR MENU
+// =====================
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.querySelector('.nav');
+
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        // Troca ícone entre menu e fechar
+        menuToggle.innerHTML = navMenu.classList.contains('open') 
+            ? '<i class="fa fa-xmark"></i>' 
+            : '<i class="fa fa-bars"></i>';
+    });
+}
