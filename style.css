@@ -190,7 +190,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   transition: 0.4s;
-  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 1px 10px rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:hover {
