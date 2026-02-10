@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hammershark | Moda Performance</title>
+  <title>Hammershark | Moda Fitness</title>
   <meta name="description" content="Hammershark: Roupas de alta performance para quem treina pesado." />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="img/hammershark-icon.png">
+
+
+  <link rel="stylesheet" href="estilos/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +47,7 @@
       </nav>
 
       <!-- CARRINHO -->
-      <a href="carrinho.html" class="floating-cart" aria-label="Carrinho">
+      <a href="carrinho/carrinho.html" class="floating-cart" aria-label="Carrinho">
         <i class="fa-solid fa-cart-shopping"></i>
         <span id="cart-count">0</span>
       </a>
@@ -77,9 +80,9 @@
           <div class="product-image">
             <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
 
-            <a href="produtos.html" class="product-link-wrapper">
-              <img src="img/camiseta1.jpeg" class="product-img active" alt="Camiseta frente" />
-              <img src="img/camiseta2.jpeg" class="product-img" alt="Camiseta costas" loading="lazy" />
+            <a href="produto1/produtos.html" class="product-link-wrapper">
+              <img src="img/camiseta1.jpeg" class="product-img active" alt="frente" />
+              <img src="img/camiseta2.jpeg" class="product-img" alt="costas" loading="lazy" />
             </a>
 
             <button class="next" type="button" aria-label="Próxima imagem">›</button>
@@ -105,9 +108,9 @@
           <div class="product-image">
             <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
 
-            <a href="produtos.html" class="product-link-wrapper">
-              <img src="img/top1.png" class="product-img active" alt="Top frente" />
-              <img src="img/top2.jpeg" class="product-img" alt="Top costas" loading="lazy" />
+            <a href="produto1/produtos2.html" class="product-link-wrapper">
+              <img src="img/top1.png" class="product-img active" alt="frente" />
+              <img src="img/top2.jpeg" class="product-img" alt="costas" loading="lazy" />
             </a>
 
             <button class="next" type="button" aria-label="Próxima imagem">›</button>
@@ -119,6 +122,59 @@
               Top esportivo com alças nadador e tecido de alta compressão.
               Oferece sustentação, conforto e liberdade de movimento
               para treinos intensos.
+            </p>
+            <p class="price">R$ 49,90</p>
+            <button class="btn-product" onclick="addToCart('Top Nadador', 89.90, this)">
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+
+            <a href="produto1/produtos3.html" class="product-link-wrapper">
+              <img src="img/red1.png" class="product-img active" alt="frente" />
+              <img src="img/red2.png" class="product-img active" alt="frente" />
+              <img src="img/red3.png" class="product-img" alt="costas" loading="lazy" />
+            </a>
+
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+
+          <div class="product-info">
+            <h3>Top Nadador</h3>
+            <p class="product-description">
+              Top esportivo com alças nadador e tecido de alta compressão.
+              Oferece sustentação, conforto e liberdade de movimento
+              para treinos intensos.
+            </p>
+            <p class="price">R$ 49,90</p>
+            <button class="btn-product" onclick="addToCart('Top Nadador', 89.90, this)">
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image">
+            <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+
+            <a href="produto1/produtos4.html" class="product-link-wrapper">
+              <img src="img/gray1.png" class="product-img active" alt="frente" />
+              <img src="img/gray2.png" class="product-img" alt="costas" loading="lazy" />
+            </a>
+
+            <button class="next" type="button" aria-label="Próxima imagem">›</button>
+          </div>
+
+          <div class="product-info">
+            <h3>Camiseta Básica</h3>
+            <p class="product-description">
+              Desenvolvida para os fortes. Nossa camiseta básica combina o toque suave do algodão 
+              premium com uma modelagem que valoriza o shape, garantindo durabilidade extrema 
+              mesmo após centenas de treinos.
             </p>
             <p class="price">R$ 89,90</p>
             <button class="btn-product" onclick="addToCart('Top Nadador', 89.90, this)">
@@ -142,34 +198,60 @@
     </section>
 
 
-    <!-- ================= LOCALIZAÇÃO ================= -->
-    <section id="localizacao" class="location">
-      <h2 class="section-title">Onde Estamos</h2>
+  <!-- ================= DIFERENCIAIS ================= -->
+  <section id="diferenciais" class="differentials">
 
-      <div class="location-grid">
-        <div class="store-info">
-          <h3>Visite nossa loja física</h3>
-          <p><i class="fa-solid fa-location-dot"></i> Av. Exemplo da Força, 1000 - Centro</p>
-          <p>Sua Cidade - UF | CEP 00000-000</p>
-          <p><i class="fa-solid fa-clock"></i> Segunda a Sexta: 08h às 20h</p>
+    <div class="differentials-header">
+      <span class="tag">CONFORTO E RESISTÊNCIA</span>
+      <h2>Feita para quem vive o treino.</h2>
+      <p>
+        A Hammershark combina Tecido de qualidade, modelagem confortável
+        e resistência para acompanhar sua rotina dentro e fora da academia.
+      </p>
+    </div>
 
-          <a href="https://maps.google.com" target="_blank" class="btn-product">
-            Ver no Google Maps
-          </a>
-        </div>
+    <div class="differentials-grid">
 
-        <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.65!3d-23.56!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzM2LjAiUyA0NsKwMzknMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000" 
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen 
-            loading="lazy">
-          </iframe>
-        </div>
+      <div class="differential-item">
+        <i class="fa-solid fa-shirt"></i>
+        <h3>Tecido de Qualidade</h3>
+        <p>
+          Tecido macio, respirável e confortável,
+          ideal para treinos e uso diário.
+        </p>
       </div>
-    </section>
+
+      <div class="differential-item">
+        <i class="fa-solid fa-dumbbell"></i>
+        <h3>Conforto no Movimento</h3>
+        <p>
+          Modelagem pensada para liberdade e caimento firme,
+          sem limitar seus movimentos.
+        </p>
+      </div>
+
+      <div class="differential-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Durabilidade</h3>
+        <p>
+          Costuras reforçadas e acabamento resistente
+          para acompanhar sua rotina intensa.
+        </p>
+      </div>
+
+      <div class="differential-item">
+        <i class="fa-solid fa-fire"></i>
+        <h3>Estilo Minimalista</h3>
+        <p>
+          Visual forte e discreto, combinando
+          com qualquer ambiente.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
 
   </main>
 
@@ -198,7 +280,7 @@
     </div>
   </footer>
 
-  <script src="scripts.js"></script>
+  <script src="scripts/scripts.js"></script>
 
 </body>
 </html>

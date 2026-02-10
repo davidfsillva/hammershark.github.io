@@ -9,7 +9,7 @@ const elements = {
     subtotal: document.getElementById("subtotal"),
     total: document.getElementById("total"),
     checkoutBtn: document.getElementById("checkoutBtn"),
-    clearCartBtn: document.getElementById("clearCartBtn"), // NOVO
+    clearCartBtn: document.getElementById("clearCartBtn"),
     hero: document.getElementById("inicio"),
     emptyMsg: document.getElementById("empty-cart-msg"),
     cartWrapper: document.getElementById("cart-wrapper")
@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initProductSliders();
     initMenuToggle();
     initCheckout();
-    initClearCart(); // NOVO
+    initClearCart();
+    initImageModal();
 });
 
 // =====================
@@ -43,11 +44,6 @@ function initHeroSlider() {
         'img/img8.png'
     ];
 
-    imagensHero.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-
     let i = 0;
 
     setInterval(() => {
@@ -61,11 +57,12 @@ function initHeroSlider() {
 // 4. SLIDER PRODUTOS
 // =====================
 function initProductSliders() {
-    document.querySelectorAll('.product').forEach(product => {
+    const galleries = document.querySelectorAll('.product-gallery, .product');
 
-        const imgs = product.querySelectorAll('.product-img');
-        const prev = product.querySelector('.prev');
-        const next = product.querySelector('.next');
+    galleries.forEach(gallery => {
+        const imgs = gallery.querySelectorAll('.product-img');
+        const prev = gallery.querySelector('.prev');
+        const next = gallery.querySelector('.next');
 
         if (!imgs.length) return;
 
@@ -76,23 +73,17 @@ function initProductSliders() {
             imgs[index].classList.add('active');
         }
 
-        if (next) {
-            next.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                index = (index + 1) % imgs.length;
-                updateImage();
-            });
-        }
+        if (next) next.addEventListener('click', (e) => {
+            e.preventDefault();
+            index = (index + 1) % imgs.length;
+            updateImage();
+        });
 
-        if (prev) {
-            prev.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                index = (index - 1 + imgs.length) % imgs.length;
-                updateImage();
-            });
-        }
+        if (prev) prev.addEventListener('click', (e) => {
+            e.preventDefault();
+            index = (index - 1 + imgs.length) % imgs.length;
+            updateImage();
+        });
     });
 }
 
@@ -101,8 +92,7 @@ function initProductSliders() {
 // =====================
 function selectSize(btn) {
     const parent = btn.closest('.sizes');
-    parent.querySelectorAll('button')
-        .forEach(b => b.classList.remove('active'));
+    parent.querySelectorAll('button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 }
 
@@ -110,14 +100,10 @@ function selectSize(btn) {
 // 6. CARRINHO
 // =====================
 function addToCart(name, price, btn) {
-
-    const sizeBtn = btn.closest('.product')
-        ?.querySelector('.sizes button.active');
-
+    const sizeBtn = btn.closest('.product-detail')?.querySelector('.sizes button.active');
     const size = sizeBtn ? sizeBtn.innerText : "M";
 
     cart.push({ name, price, size });
-
     saveCart();
     updateCartUI();
     animateButton(btn);
@@ -140,11 +126,7 @@ function saveCart() {
 }
 
 function updateCartUI() {
-
-    if (elements.cartCount) {
-        elements.cartCount.innerText = cart.length;
-    }
-
+    if (elements.cartCount) elements.cartCount.innerText = cart.length;
     if (!elements.cartItems) return;
 
     if (cart.length === 0) {
@@ -160,42 +142,29 @@ function updateCartUI() {
     elements.cartItems.innerHTML = "";
 
     let subtotal = 0;
-
     cart.forEach((item, index) => {
-
         subtotal += item.price;
 
         const li = document.createElement("li");
         li.className = "cart-item";
-
         li.innerHTML = `
             <div>
                 <strong>${item.name}</strong>
-                <small style="display:block; color:var(--primary)">
-                    TAM: ${item.size}
-                </small>
+                <small style="display:block; color:var(--primary)">TAM: ${item.size}</small>
             </div>
             <div style="display:flex; align-items:center; gap:15px;">
                 <strong>R$ ${item.price.toFixed(2)}</strong>
                 <button onclick="removeFromCart(${index})"
                     style="color:#ff4d4d; border:1px solid #ff4d4d;
                     padding:5px 8px; border-radius:5px;
-                    background:none; cursor:pointer;">
-                    ✕
-                </button>
+                    background:none; cursor:pointer;">✕</button>
             </div>
         `;
-
         elements.cartItems.appendChild(li);
     });
 
-    if (elements.subtotal) {
-        elements.subtotal.innerText = subtotal.toFixed(2);
-    }
-
-    if (elements.total) {
-        elements.total.innerText = subtotal.toFixed(2);
-    }
+    if (elements.subtotal) elements.subtotal.innerText = subtotal.toFixed(2);
+    if (elements.total) elements.total.innerText = subtotal.toFixed(2);
 }
 
 // =====================
@@ -205,7 +174,6 @@ function animateButton(btn) {
     if (!btn) return;
 
     const originalText = btn.innerText;
-
     btn.innerText = "Adicionado!";
     btn.disabled = true;
 
@@ -219,11 +187,9 @@ function animateButton(btn) {
 // 8. FINALIZAR WHATSAPP
 // =====================
 function initCheckout() {
-
     if (!elements.checkoutBtn) return;
 
     elements.checkoutBtn.addEventListener("click", () => {
-
         if (cart.length === 0) {
             alert("Seu carrinho está vazio!");
             return;
@@ -235,19 +201,13 @@ function initCheckout() {
             message += `${index + 1}. *${item.name}* - Tam: ${item.size} (R$ ${item.price.toFixed(2)})%0A`;
         });
 
-        const totalValue = elements.total
-            ? elements.total.innerText
-            : "0.00";
-
+        const totalValue = elements.total ? elements.total.innerText : "0.00";
         message += `%0A💰 *Total:* R$ ${totalValue}`;
         message += `%0A%0A_Olá! Gostaria de prosseguir com o pagamento._`;
 
         const phone = "5594993012103";
 
-        window.open(
-            `https://wa.me/${phone}?text=${message}`,
-            "_blank"
-        );
+        window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
     });
 }
 
@@ -255,19 +215,15 @@ function initCheckout() {
 // 9. ESVAZIAR CARRINHO
 // =====================
 function initClearCart() {
-
     if (!elements.clearCartBtn) return;
 
     elements.clearCartBtn.addEventListener("click", () => {
-
         if (cart.length === 0) {
             alert("O carrinho já está vazio.");
             return;
         }
 
-        const confirmClear = confirm("Tem certeza que deseja esvaziar o carrinho?");
-
-        if (confirmClear) {
+        if (confirm("Tem certeza que deseja esvaziar o carrinho?")) {
             clearCart();
         }
     });
@@ -277,19 +233,57 @@ function initClearCart() {
 // 10. MENU MOBILE
 // =====================
 function initMenuToggle() {
-
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.querySelector('.nav');
 
     if (!menuToggle || !navMenu) return;
 
     menuToggle.addEventListener('click', () => {
-
         navMenu.classList.toggle('open');
-
         menuToggle.innerHTML =
-            navMenu.classList.contains('open')
-                ? '<i class="fa fa-xmark"></i>'
-                : '<i class="fa fa-bars"></i>';
+            navMenu.classList.contains('open') ? '<i class="fa fa-xmark"></i>' : '<i class="fa fa-bars"></i>';
+    });
+}
+
+// =====================
+// 11. MODAL DE IMAGEM
+// =====================
+function initImageModal() {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const captionText = document.getElementById("caption");
+    const closeBtn = document.querySelector(".close");
+    const prevBtn = document.querySelector(".prev-modal");
+    const nextBtn = document.querySelector(".next-modal");
+
+    const images = document.querySelectorAll(".product-gallery .product-img");
+    if (!modal || !images.length) return;
+
+    let currentIndex = 0;
+
+    function openModal(index) {
+        currentIndex = index;
+        modal.style.display = "block";
+        modalImg.src = images[currentIndex].src;
+    }
+
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => openModal(index));
+    });
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        openModal(currentIndex);
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        openModal(currentIndex);
+    });
+
+    closeBtn.addEventListener("click", () => modal.style.display = "none");
+
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) modal.style.display = "none";
     });
 }

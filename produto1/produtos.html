@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camiseta Básica | Hammershark</title>
+  <link rel="stylesheet" href="../estilos/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    .header {
+      position: static; 
+      top: auto;        
+      width: 100%;      
+    }   
+    
+    /* BOTÃO VOLTAR */
+    .back-btn {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border: 2px solid var(--primary);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--primary);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* CARRINHO FLUTUANTE */
+    .cart-floating {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      z-index: 999;
+      transition: 0.3s ease;
+    }
+
+    .cart-floating:hover {
+      transform: translateY(-3px);
+    }
+
+    /* GALERIA DE PRODUTO */
+    .product-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .product-gallery {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .product-img {
+      width: 100%;
+      display: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .product-img.active {
+      display: block;
+    }
+
+    .product-gallery button.prev,
+    .product-gallery button.next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.356);
+      border: none;
+      font-size: 1.7rem;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+      z-index: 10;
+    }
+
+    .product-gallery button.prev {
+      left: 10px;
+    }
+    .product-gallery button.next {
+      right: 10px;
+    }
+
+    /* INFORMAÇÕES DO PRODUTO */
+    .product-detail-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .sizes button {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--primary);
+      background: none;
+      margin-right: 5px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    .sizes button.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .checkout-btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      margin-top: 15px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      opacity: 0.9;
+      background: black;
+      border: 1px solid;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .product-detail {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-gallery {
+        max-width: 100%;
+      }
+    }
+
+    /* MODAL DE IMAGEM */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 98%;
+      max-height: 95%;
+      border-radius: 10px;
+    }
+
+    #caption {
+      margin: 15px auto;
+      text-align: center;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+
+    /* BOTÕES DE NAVEGAÇÃO DO MODAL */
+    .prev-modal, .next-modal {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 2rem;
+      padding: 0.8rem;
+      background: rgba(0, 0, 0, 0);
+      border: none;
+      border-radius: 10%;
+    }
+
+    .prev-modal { left: 20px; }
+    .next-modal { right: 20px; }
+
+    .prev-modal:hover, .next-modal:hover {
+      background: rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CARRINHO FLUTUANTE -->
+  <a href="../carrinho/carrinho.html" class="floating-cart">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count">0</span>
+  </a>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="logo-container">
+        <h1 class="logo"><a href="../index.html">Hammershark</a></h1>
+        <img src="../img/logo.png" alt="Hammershark Logo" class="logo-img">
+      </div>
+
+      <a href="../index.html" class="back-btn">Voltar</a>
+    </div>
+  </header>
+
+  <main class="container product-page">
+    <div class="product-detail">
+
+      <!-- GALERIA DE IMAGENS -->
+      <div class="product-gallery">
+        <button class="prev" type="button" aria-label="Imagem anterior">‹</button>
+        <img src="../img/camiseta1.jpeg" alt="Camiseta Básica frente" class="product-img active">
+        <img src="../img/camiseta2.jpeg" alt="Camiseta Básica costas" class="product-img">
+        <button class="next" type="button" aria-label="Próxima imagem">›</button>
+      </div>
+
+      <!-- INFORMAÇÕES DO PRODUTO -->
+      <div class="product-detail-info">
+        <span class="category-tag">Coleção Performance</span>
+        <h2>Camiseta Básica</h2>
+        <p class="price">R$ 79,90</p>
+
+        <div class="description">
+          <p>
+            Desenvolvida para os fortes. Nossa camiseta básica combina o toque suave do algodão 
+            premium com uma modelagem que valoriza o shape, garantindo durabilidade extrema 
+            mesmo após centenas de treinos.
+          </p>
+        </div>
+
+        <div class="size-selector">
+          <p style="margin-bottom: 10px; font-weight: bold;">Selecione o Tamanho:</p>
+          <div class="sizes">
+            <button type="button" onclick="selectSize(this)">P</button>
+            <button type="button" class="active" onclick="selectSize(this)">M</button>
+            <button type="button" onclick="selectSize(this)">G</button>
+            <button type="button" onclick="selectSize(this)">GG</button>
+          </div>
+        </div>
+
+        <button class="checkout-btn" onclick="addToCart('Camiseta Básica', 79.90, this)">
+          Adicionar ao Carrinho
+        </button>
+
+        <div class="trust-badges" style="margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
+          <p>Envio para todo o Brasil</p>
+          <p>Compra 100% Segura</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Hammershark. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- MODAL DE IMAGEM -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <button class="prev-modal">&#10094;</button>
+    <img class="modal-content" id="modalImg">
+    <button class="next-modal">&#10095;</button>
+    <div id="caption"></div>
+  </div>
+
+  <!-- SCRIPT EXTERNO -->
+  <script src="../scripts/scripts.js"></script>
+</body>
+</html>

@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Carrinho | Hammershark</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../estilos/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
 <style>
+
 .back-link {
   display: inline-block;
   padding: 0.6rem 1.5rem;
   border: 2px solid var(--primary);
-  border-radius: 50px;
+  border-radius: 10px;
   text-decoration: none;
   color: var(--primary);
   font-family: 'Inter', sans-serif;
@@ -43,11 +44,11 @@
   <header class="header">
     <div class="header-container">
       <div class="logo-container">
-      <h1 class="logo">HAMMERSHARK</h1>
-      <img src="img/logo.png" alt="Hammershark Logo" class="logo-img">
+      <h1 class="logo"><a href="../index.html">Hammershark</a></h1>
+      <img src="../img/logo.png" alt="Hammershark Logo" class="logo-img">
     </div>
 
-    <a href="index.html" class="back-link">Voltar</a>
+    <a href="../index.html" class="back-link">Voltar</a>
   </header>
 
   <main class="container">
@@ -79,11 +80,11 @@
       <div id="empty-cart-msg" style="display:none; text-align:center; padding: 3rem 0;">
           <p>Seu carrinho está vazio.</p>
           <br>
-          <a href="index.html" class="btn-primary">Ir para a Loja</a>
+          <a href="../index.html" class="btn-primary">Ir para a Loja</a>
       </div>
     </section>
   </main>
 
-  <script src="scripts.js"></script>
+  <script src="../scripts/scripts.js"></script>
 </body>
 </html>

@@ -519,46 +519,83 @@ body {
 }
 
 /* =====================
-   LOCALIZAÇÃO / MAPA
+   DIFERENCIAIS
 ===================== */
-.location {
+
+.differentials {
   padding: 4rem 1rem;
+  background: var(--white);
+  text-align: center;
 }
 
-.location-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
+.differentials-header {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
 }
 
-.store-info h3 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  color: var(--dark);
-}
-
-.store-info p {
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  color: var(--gray);
-}
-
-.store-info a.btn-product {
-  margin-top: 1rem;
+.differentials-header .tag {
   display: inline-block;
-  width: auto;
-  padding: 0.8rem 1.8rem;
+  padding: 6px 16px;
+  border: 1px solid var(--primary);
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 1rem;
 }
 
-.map-container {
-  width: 100%;
-  height: 300px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
+.differentials-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
 }
+
+.differentials-header p {
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.differentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.differential-item {
+  background: var(--light);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.differential-item:hover {
+  transform: translateY(-8px);
+  border: 1px solid var(--primary);
+}
+
+.differential-item i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.differential-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.differential-item p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
 
 /* =====================
    FOOTER
