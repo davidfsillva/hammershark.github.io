@@ -205,7 +205,7 @@ function initCheckout() {
         message += `%0A💰 *Total:* R$ ${totalValue}`;
         message += `%0A%0A_Olá! Gostaria de prosseguir com o pagamento._`;
 
-        const phone = "5594993012103";
+        const phone = "5599999999999";
 
         window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
     });
